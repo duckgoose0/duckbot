@@ -9,7 +9,7 @@ class Moderation(commands.Cog):
         self.client = client
 
     @commands.command(aliases=['purge', 'delete'])
-    @commands.has_role("Developer")
+    @commands.has_role(860186427202338846)
     async def clear(self, ctx, num=6):
         try:
             await ctx.channel.purge(limit=num)
