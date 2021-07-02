@@ -22,9 +22,6 @@ async def bothelp(ctx):
 ?bothelp > returns list of commands
 ?botping > returns bot latency
 
-//server tools (developer use only)
-?clear [int] > deletes [int] number of messages in channel. if [int] is not specified, default is 5 | aliases: ?purge, ?delete
-
 //simple response
 ?duck > quack
 ?goose > honk
