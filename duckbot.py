@@ -1,11 +1,17 @@
 import discord
 import os
 from discord.ext import commands
+from keep_alive import keep_alive
 
 
 client = commands.Bot(command_prefix='?')
 keep_alive()
 token = os.environ['DISCORD_BOT_TOKEN']
+
+@client.event # bot birthday is july 1
+async def on_ready():
+        await client.change_presence(activity = discord.Game('with deez nuts'))
+        print('duckbot is running...')
 
 
 @client.command()
@@ -24,6 +30,7 @@ async def bothelp(ctx):
 ?goose > honk
 ?doggo > bork
 ?catto > mlem
+?viper > viper mommy mmmmmmmmm (returns image)
 
 //randomizers
 ?ask [query] > responds to a question with yes/maybe/no
