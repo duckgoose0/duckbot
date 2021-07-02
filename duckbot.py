@@ -77,9 +77,9 @@ async def coin(ctx):
     await ctx.send(f'{random.choice(responses)}')
 
 
-@client.command()
-async def rand(ctx, min, max):  # not functioning yet
-    await ctx.send(f'The number I have selected is **{random.randint(min, max)}')
+# @client.command()
+# async def rand(ctx, min, max):  # not functioning yet
+#    await ctx.send(f'The number I have selected is {random.randint(min, max)}')
 
 
 @client.command(aliases=['shuffle'])
