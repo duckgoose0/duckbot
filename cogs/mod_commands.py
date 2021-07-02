@@ -3,7 +3,7 @@ import os
 from discord.ext import commands
 
 
-class Info(commands.Cog):
+class Moderation(commands.Cog):
 
     def __init__(self, client):
         self.client = client
@@ -18,4 +18,4 @@ class Info(commands.Cog):
 
 
 def setup(client):
-    client.add_Cog(Info(client))
+    client.add_cog(Moderation(client))

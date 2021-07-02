@@ -4,13 +4,13 @@ import random
 from discord.ext import commands
 
 
-class Info(commands.Cog):
+class Randomizer(commands.Cog):
 
     def __init__(self, commands):
         self.commands = commands
 
     @commands.command()
-    async def ask(ctx, *, question):
+    async def ask(self, ctx, *, question):
         responses = ['Yes :grin:',
                      'Of course :grin:',
                      'Maybe :thinking:',
@@ -21,7 +21,7 @@ class Info(commands.Cog):
 {random.choice(responses)}''')
 
     @commands.command(aliases=['flip', 'cointoss'])
-    async def coin(ctx):
+    async def coin(self, ctx):
         responses = ['heads', 'tails']
         await ctx.send(f'{random.choice(responses)}')
 
@@ -31,7 +31,7 @@ class Info(commands.Cog):
 #    await ctx.send(f'The number I have selected is {random.randint(min, max)}')
 
     @commands.command(aliases=['shuffle'])
-    async def card(ctx):
+    async def card(self, ctx):
         value = ['Ace',
                  '2',
                  '3',
@@ -70,4 +70,4 @@ class Info(commands.Cog):
 
 
 def setup(client):
-    client.add_Cog(Info(client))
+    client.add_cog(Randomizer(client))

@@ -26,4 +26,4 @@ class Response(commands.Cog):
 
 
 def setup(client):
-    client.add_Cog(Response(client))
+    client.add_cog(Response(client))
