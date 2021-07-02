@@ -4,7 +4,7 @@ import random
 from discord.ext import commands
 
 client = commands.Bot(command_prefix='?')
-
+token = os.environ['DISCORD_BOT_TOKEN']
 
 @client.event  # on bot startup
 async def on_ready():
@@ -121,4 +121,4 @@ async def card(ctx):
     await ctx.send(f'I drew the {random.choice(value)} of {random.choice(suit)}.')
 
 
-client.run('ODYwMjQwMDY5MzE3ODg2MDA0.YN4W_w.E0T9uzpQLimdYcpVJyLNaFB-FbA')
+client.run(token)
