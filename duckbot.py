@@ -44,7 +44,7 @@ async def botping(ctx):
 
 # server moderation tools
 @client.command(aliases=['purge', 'delete'])
-@commands.has_role("Developer")
+@commands.has_role(860186427202338846)
 async def clear(ctx, num=6):
     try:
         await ctx.channel.purge(limit=num)
