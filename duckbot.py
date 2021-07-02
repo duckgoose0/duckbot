@@ -4,7 +4,8 @@ from discord.ext import commands
 
 
 client = commands.Bot(command_prefix='?')
-token = 'ODYwMjQwMDY5MzE3ODg2MDA0.YN4W_w.ik_xssMGk81Q_uSY9gcz-GJYBnw'
+keep_alive()
+token = os.environ['DISCORD_BOT_TOKEN']
 
 
 @client.command()
