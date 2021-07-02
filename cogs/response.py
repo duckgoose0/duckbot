@@ -24,6 +24,10 @@ class Response(commands.Cog):
     async def catto(self, ctx):
         await ctx.send('mlem')
 
+    @commands.command()
+    async def viper(self, ctx):
+        await ctx.send('https://imgur.com/1WjiZ1g')
+
 
 def setup(client):
     client.add_cog(Response(client))
