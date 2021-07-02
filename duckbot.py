@@ -2,8 +2,10 @@ import discord
 import os
 import random
 from discord.ext import commands
+from keep_alive import keep_alive
 
 client = commands.Bot(command_prefix='?')
+keep_alive()
 token = os.environ['DISCORD_BOT_TOKEN']
 
 @client.event  # on bot startup
