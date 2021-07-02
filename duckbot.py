@@ -22,6 +22,9 @@ async def bothelp(ctx):
 ?bothelp > returns list of commands
 ?botping > returns bot latency
 
+//server tools (developer use only)
+?clear [int] > deletes [int] number of messages in channel. if [int] is not specified, default is 5 | aliases: ?purge, ?delete
+
 //simple response
 ?duck > quack
 ?goose > honk
@@ -30,13 +33,23 @@ async def bothelp(ctx):
 
 //randomizers
 ?ask [query] > responds to a question with yes/maybe/no
-?coin > flips a coin | aliases: ?flip and ?cointoss
+?coin > flips a coin | aliases: ?flip, ?cointoss
 ?card > draws a random card from a standard deck of 52 | aliases: ?shuffle''')
 
 
 @client.command()
 async def botping(ctx):
     await ctx.send(f'The bot\'s latency is {round(client.latency * 1000)}ms.')
+
+
+# server moderation tools
+@client.command(aliases=['purge', 'delete'])
+@commands.has_role("Developer")
+async def clear(ctx, num=6):
+    try:
+        await ctx.channel.purge(limit=num)
+    except commands.MissingRole:
+        await ctx.send('You don\t have permission to use that command!')
 
 
 # simple response commands
