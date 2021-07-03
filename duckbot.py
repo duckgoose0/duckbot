@@ -8,7 +8,7 @@ from itertools import cycle
 client = commands.Bot(command_prefix='?')
 keep_alive()
 token = os.environ['DISCORD_BOT_TOKEN']
-status = ['-_-_-', '_-_-_']
+status = cycle(['need help with the bot?', 'send ?bothelp'])
 
 
 @client.event  # bot birthday is july 1
@@ -58,7 +58,7 @@ async def reload(ctx, extension):
     client.load_extension(f'cogs.{extension}')
 
 
-@tasks.loop(seconds=10)
+@tasks.loop(seconds=5)
 async def change_status():
     await client.change_presence(activity=discord.Game(next(status)))
 
