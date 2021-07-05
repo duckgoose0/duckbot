@@ -20,18 +20,23 @@ async def on_ready():
 @client.command()
 async def bothelp(ctx):
     await ctx.send('''here\'s a list of commands you can currenly use:
-//bot info
+
+**Bot Info**
 ?bothelp > returns list of commands
 ?botping > returns bot latency
-//server tools
+
+**Server Tools**
 ?clear [int] > deletes [int] number of messages in channel. if [int] is not specified, default is 5 | aliases: ?purge, ?delete
-//simple response
-?duck > quack
+
+**Simple Response**
+?ducky > quack
 ?goose > honk
 ?doggo > bork
 ?catto > mlem
+?bunny > pyon
 ?viper > viper mommy mmmmmmmmm (returns image)
-//randomizers
+
+**Randomizers**
 ?ask [query] > responds to a question with yes/maybe/no
 ?coin > flips a coin | aliases: ?flip, ?cointoss
 ?card > draws a random card from a standard deck of 52 | aliases: ?shuffle''')
