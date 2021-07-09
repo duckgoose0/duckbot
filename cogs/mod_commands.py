@@ -16,6 +16,35 @@ class Moderation(commands.Cog):
 		except commands.MissingPermissions:
 			await ctx.send('You don\'t have permission to use that command!')
 
+	@commands.command()
+	@commands.has_permissions(kick_members=True)
+	async def kick(self, ctx, member : discord.Member, *, reason=None):
+			await member.kick(reason=reason)
+			await ctx.send(f'{member} was kicked from the server.')
+
+	@kick.error
+	async def kick_error(self, ctx, error):
+		if isinstance(error, commands.MissingPermissions):
+			await ctx.send('You don\'t have permission to use that command!')
+		elif isinstance(error, commands.BadArgument):
+			await ctx.send('No user specified!')
+		else: raise error
+
+
+	@commands.command()
+	@commands.has_permissions(ban_members=True)
+	async def ban(self, ctx, member : discord.Member, *, reason=None):
+			await member.ban(reason=reason)
+			await ctx.send(f'{member} was banned indefinitely from the server.')
+
+	@ban.error
+	async def ban_error(self, ctx, error):
+		if isinstance(error, commands.MissingPermissions):
+			await ctx.send('You don\'t have permission to use that command!')
+		elif isinstance(error, commands.BadArgument):
+			await ctx.send('No user specified!')
+		else: raise error
+
 
 def setup(client):
 	client.add_cog(Moderation(client))

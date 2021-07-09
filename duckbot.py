@@ -16,6 +16,13 @@ async def on_ready():
     change_status.start()
     print('duckbot is running...')
 
+@client.event
+async def on_command_error(ctx, error):
+	if isinstance(error, commands.CommandNotFound):
+		await ctx.send('The command you are trying to use does not exist.')
+	else:
+		raise error
+
 
 @client.command()
 async def bothelp(ctx):
@@ -24,9 +31,6 @@ async def bothelp(ctx):
 **Bot Info**
 ?bothelp > returns list of commands
 ?botping > returns bot latency
-
-**Server Tools**
-?clear [int] > deletes [int] number of messages in channel. if [int] is not specified, default is 5 | aliases: ?purge, ?delete
 
 **Simple Response**
 ?ducky > quack
