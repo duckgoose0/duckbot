@@ -42,6 +42,7 @@ async def bothelp(ctx):
 
 **Randomizers**
 ?ask [query] > responds to a question with yes/maybe/no
+?rng [min] [max] > picks a random integer between the two parameters (default 1-10) | aliases: ?rand
 ?coin > flips a coin | aliases: ?flip, ?cointoss
 ?card > draws a random card from a standard deck of 52 | aliases: ?shuffle''')
 

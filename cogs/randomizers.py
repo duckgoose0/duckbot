@@ -26,9 +26,14 @@ class Randomizer(commands.Cog):
 		await ctx.send(f'{random.choice(responses)}')
 
 	
-# @commands.command()
-# async def rand(ctx, min, max):  # not functioning yet
-#    await ctx.send(f'The number I have selected is {random.randint(min, max)}')
+	@commands.command(aliases=['rand'])
+	async def rng(self, ctx, minval=1, maxval=10):
+		if minval >= maxval:
+			await ctx.send('Make sure that the lower value is written before the higher value.')
+			raise ValueError('minval is larger than maxval')
+		else:
+			val = random.randint(int(minval), int(maxval))
+			await ctx.send(f'{val}')
 
 
 	@commands.command(aliases=['shuffle'])
@@ -59,7 +64,6 @@ class Randomizer(commands.Cog):
 			await ctx.send('What\'s the question?')
 		else:
 			raise error
-
 
 def setup(client):
     client.add_cog(Randomizer(client))
