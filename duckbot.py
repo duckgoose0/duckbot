@@ -8,7 +8,7 @@ from itertools import cycle
 client = commands.Bot(command_prefix='?')
 keep_alive()
 token = os.environ['DISCORD_BOT_TOKEN']
-status = cycle(['need help with the bot?', 'send ?bothelp'])
+status = cycle(['need help with the bot?', 'send ?bot help'])
 
 
 @client.event  # bot birthday is july 1
@@ -25,31 +25,47 @@ async def on_command_error(ctx, error):
 
 
 @client.command()
-async def bothelp(ctx):
-    await ctx.send('''here\'s a list of commands you can currenly use:
+async def bot(ctx, param1 = '', param2 = ''):
+	if param1 == 'help':
+		await ctx.send('''here\'s a list of commands you can currenly use:
 
 **Bot Info**
-?bothelp > returns list of commands
-?botping > returns bot latency
+?bot | gateway command for bot information and settings 
 
 **Simple Response**
-?ducky > quack
-?goose > honk
-?doggo > bork
-?catto > mlem
-?bunny > pyon
-?viper > viper mommy mmmmmmmmm (returns image)
+?ducky | quack
+?goose | honk
+?doggo | bork
+?catto | mlem
+?bunny | pyon
 
 **Randomizers**
-?ask [query] > responds to a question with yes/maybe/no
-?rng [min] [max] > picks a random integer between the two parameters (default 1-10) | aliases: ?rand
-?coin > flips a coin | aliases: ?flip, ?cointoss
-?card > draws a random card from a standard deck of 52 | aliases: ?shuffle''')
+?ask <query> | responds to a question with yes/maybe/no
+?rng <min> <max> | picks a random integer between the two parameters (default 1-10) | aliases: ?rand
+?coin | flips a coin | aliases: ?flip, ?cointoss
+?card | draws a random card from a standard deck of 52 | aliases: ?shuffle''')
+	elif param1 == 'ping':
+		await ctx.send(f'The bot\'s latency is {round(client.latency * 1000)}ms.')
+	#elif param1 == 'prefix':
+		#if param2 == '':
+			#await ctx.send('Set the prefix the bot uses for this server by typing "?bot prefix <prefix>')'"
+		#elif len(param2) >= 5:
+			#command to set prefix here
+		#else:
+			#error message for invalid command here
+	elif param1 == 'about':
+		await ctx.send('''I\'m duckbot! I was created by <@727357949629956246> as a summer project to get familiar with Python. You can reach my creator at https://twitter.com/_duckgoose_.
+		
+Current Version: 2.1.0 beta''')
+	elif param1 == '':
+		await ctx.send('''These are the commands under ?bot (format: ?bot <command> <optional parameter>):
+		
+help | sends a full list of commands (planned to be obsolete in next update)
+ping | pong! returns the bot's latency
+about | gives you information about the bot and its very sexy creator
+prefix | allows you to set the bot's server prefix (not functional yet) | required parameter: prefix (string, < 6 characters)''')
 
 
-@client.command()
-async def botping(ctx):
-    await ctx.send(f'The bot\'s latency is {round(client.latency * 1000)}ms.')
 
 
 @client.command()
