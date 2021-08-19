@@ -9,24 +9,46 @@ class Response(commands.Cog):
 		self.client = client
 
 	@commands.command()
-	async def ducky(self, ctx):
-		await ctx.send('quack')
+	async def ducky(self, ctx, please = ''):
+		if please == 'please':
+			await ctx.send('quack')
+		else:
+			await ctx.send('you can\'t just demand things of me...')
 
 	@commands.command()
-	async def goose(self, ctx):
-		await ctx.send('honk')
+	async def goose(self, ctx, please = ''):
+		if please == 'please':
+			await ctx.send('honk')
+		else:
+			await ctx.send('please be nice :pensive:')
 
 	@commands.command()
-	async def doggo(self, ctx):
-		await ctx.send('bork')
+	async def doggo(self, ctx, please = ''):
+		if please == 'please':
+			await ctx.send('bork')
+		else:
+			await ctx.send('not even a please? damn ok')
 
 	@commands.command()
-	async def catto(self, ctx):
-		await ctx.send('mlem')
+	async def catto(self, ctx, please = ''):
+		if please == 'please':
+			await ctx.send('mlem')
+		else:
+			await ctx.send('your catto can wait')
 
 	@commands.command()
-	async def bunny(self, ctx):
-		await ctx.send('pyon')
+	async def bunny(self, ctx, please = ''):
+		if please == 'please':
+			await ctx.send('pyon')
+		else:
+			await ctx.send('bunnies ooh (nope, gotta say please)')
+
+	@commands.command()
+	async def wisdom(self, ctx, please = ''):
+		if please == 'please':
+			await ctx.send('I don\'t think you should be asking a Discord bot for wisdom.')
+		else:
+			await ctx.send('i dont get paid enough for this')
 
 
 def setup(client):
