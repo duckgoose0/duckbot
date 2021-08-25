@@ -27,7 +27,7 @@ async def on_command_error(ctx, error):
 @client.command()
 async def bot(ctx, param1 = '', param2 = ''):
 	if param1 == 'help':
-		await ctx.send('''Here\'s a list of commands you can currenly use. Remember to say please when you need the bot to do something :)
+		await ctx.send('''Here\'s a list of commands you can currenly use:
 
 **Bot Info**
 bot | gateway command for bot information and settings 
