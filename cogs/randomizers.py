@@ -10,45 +10,35 @@ class Randomizer(commands.Cog):
 		self.commands = commands
 
 	@commands.command()
-	async def ask(self, ctx, please = '', *, question : str):
-		if please == 'please':
-			responses = ['Yes :grin:',
+	async def ask(self, ctx, *, question : str):
+		responses = ['Yes :grin:',
  					 'Of course :grin:',
                      'Maybe :thinking:',
                      'I don\'t know :thinking:',
                      'No :pensive:',
                      'I don\'t think so :pensive:']
-			await ctx.send(f'''> {question}
+		await ctx.send(f'''> {question}
 {random.choice(responses)}''')
-		else:
-			await ctx.send('im not answering that lmao')
 
 	@commands.command(aliases=['flip', 'cointoss'])
-	async def coin(self, ctx, please = ''):
-		if please == 'please':
-			responses = ['heads', 'tails']
-			await ctx.send(f'{random.choice(responses)}')
-		else:
-			await ctx.send('don\'t you have spare change lying aroud somewhere? just use that lmao')
+	async def coin(self, ctx):
+		responses = ['heads', 'tails']
+		await ctx.send(f'{random.choice(responses)}')
 
 	
 	@commands.command(aliases=['rand'])
-	async def rng(self, ctx, minval=1, maxval=10, please = ''):
-		if please == 'please':
-			if minval >= maxval:
-				await ctx.send('Make sure that the lower value is written before the higher value.')
-				raise ValueError('minval is larger than maxval')
-			else:
-				val = random.randint(int(minval), int(maxval))
-				await ctx.send(f'{val}')
+	async def rng(self, ctx, minval=1, maxval=10):
+		if minval >= maxval:
+			await ctx.send('Make sure that the lower value is written before the higher value.')
+			raise ValueError('minval is larger than maxval')
 		else:
-			await ctx.send('just think of a number lmao')
+			val = random.randint(int(minval), int(maxval))
+			await ctx.send(f'{val}')
 
 
 	@commands.command(aliases=['shuffle'])
-	async def card(self, ctx, please = ''):
-		if please == 'please':
-			value = ['Ace',
+	async def card(self, ctx):
+		value = ['Ace',
                  '2',
                  '3',
                  '4',
@@ -61,13 +51,11 @@ class Randomizer(commands.Cog):
                  'Jack',
                  'Queen',
                  'King']
-			suit = ['Clubs',
+		suit = ['Clubs',
                 'Hearts',
                 'Spades',
                 'Diamonds']
-			await ctx.send(f'I drew the {random.choice(value)} of {random.choice(suit)}.')
-		else:
-			await ctx.send('bugger off m8 just think of a card')
+		await ctx.send(f'I drew the {random.choice(value)} of {random.choice(suit)}.')
 
 	# error msg starts here
 	@ask.error
