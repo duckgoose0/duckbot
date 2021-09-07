@@ -44,7 +44,10 @@ ask <query> | responds to a question with yes/maybe/no
 rng <min> <max> | picks a random integer between the two parameters (default 1-10) | aliases: duck:rand
 coin | flips a coin | aliases: duck:flip, duck:cointoss
 card | draws a random card from a standard deck of 52 | aliases: duck:shuffle
-wisdom | asks the bot for wisdom!''')
+wisdom | asks the bot for wisdom!
+
+**Valorant**
+rndgun <query> | selects a random gun! type \"sidearm\" for sidearms, \"midlevel\" for guns under 2700 creds, \"expensive\" for guns over 2700 creds, or leave blank for all guns.''')
 	elif param1 == 'ping':
 		await ctx.send(f'Pong! The bot\'s latency is {round(client.latency * 1000)}ms.')
 	#elif param1 == 'prefix':
