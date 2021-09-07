@@ -24,7 +24,6 @@ class Response(commands.Cog):
 	async def catto(self, ctx):
 		await ctx.send('mlem')
 
-
 	@commands.command()
 	async def bunny(self, ctx):
 		await ctx.send('pyon')
