@@ -11,14 +11,14 @@ class Valorant(commands.Cog):
 
 	@commands.command()
 	async def rndgun(self, ctx, guntype = 'all'):
-		if guntype == 'sidearm':
+		if guntype == 'light':
 			gun = ['Classic',
 				   'Shorty',
 				   'Frenzy',
 				   'Ghost',
 				   'Sheriff']
 			await ctx.send(f'The gun you have selected is the {random.choice(gun)}.')
-		elif guntype == 'midlevel':
+		elif guntype == 'mid':
 			gun = ['Stinger',
 				   'Spectre',
 				   'Bucky',
@@ -28,7 +28,7 @@ class Valorant(commands.Cog):
 				   'Marshal',
 				   'Ares']
 			await ctx.send(f'The gun you have selected is the {random.choice(gun)}.')
-		elif guntype == 'expensive':
+		elif guntype == 'heavy':
 			gun = ['Phantom',
 				   'Vandal',
 				   'Operator',
