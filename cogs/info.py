@@ -20,7 +20,7 @@ class Info(commands.Cog):
 		await ctx.send(
 			'''I\'m duckbot! I was created as a summer project to get familiar with Python. You can reach my creator at https://twitter.com/_duckgoose_.
 		
-			Current Version: 2.3.0 beta''')
+			Current Version: 2.3.1 beta''')
 
 def setup(client):
     client.add_cog(Info(client))

@@ -130,8 +130,8 @@ class Poker(commands.Cog):
 		for x in range(len(userCardID)):
 			isSameCard = True
 			while(isSameCard):
-				userCardID[x] = random.randint(1, 13)
-				userSuitID[x] = random.randint(0, 3)
+				keyVal = random.randint(1, 13)
+				keySuit = random.randint(0, 3)
 				for i in range(len(userCardID)):
 					if i == x:
 						pass
@@ -151,6 +151,9 @@ class Poker(commands.Cog):
 						break
 					else:
 						isSameCard = False
+			
+			userCardID[x] = keyVal
+			userSuitID[x] = keySuit
 
 		for x in range(len(botCardID)):
 			isSameCard = True
